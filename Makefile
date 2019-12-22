@@ -9,8 +9,8 @@ all: $(BIN)
 %.s: %.ms
 	maccer -o $@ $<
 
-$(BIN): $(OBJS)
-	$(CC) -o $(BIN) $(OBJS)
+main.gb: main.o mmlgb/driver/music.o
+	$(CC) -o main.gb main.o mmlgb/driver/music.o
 
 clean:
-	rm -rf $(BIN) $(OBJS) *~
+	rm -rf *.gb *.lst *.map *.o *~
